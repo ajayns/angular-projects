@@ -10,9 +10,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AboutpageComponent } from './aboutpage/aboutpage.component';
 
-// import { PostsComponent } from './posts/posts.component'; // component
-// import { PostsService } from './posts.service'; // provider service
-
 // Define routes
 const routes = [
     {
@@ -38,7 +35,6 @@ const routes = [
     NavbarComponent,
     HomepageComponent,
     AboutpageComponent,
-    // PostsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +42,7 @@ const routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [], // [PostsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
