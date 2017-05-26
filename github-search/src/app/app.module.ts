@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { GithubService } from './github.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     FormsModule,
     HttpModule,
   ],
-  providers: [],
+  providers: [GithubService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
