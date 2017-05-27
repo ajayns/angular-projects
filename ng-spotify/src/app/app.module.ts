@@ -10,6 +10,22 @@ import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
 
 
+const routes = [
+     {
+        path: '',
+        redirectTo: 'search',
+        pathMatch: 'full'
+    },
+    {
+        path: 'search',
+        component: SearchComponent
+    },
+    {
+        path: 'about',
+        component: AboutComponent
+    }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +37,7 @@ import { SearchComponent } from './search/search.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+		RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
