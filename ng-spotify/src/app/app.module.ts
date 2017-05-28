@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
+import { SpotifyService } from './spotify.service'
+
 
 import { routing } from './app.routes'
 
@@ -25,7 +27,7 @@ import { routing } from './app.routes'
     HttpModule,
 		routing
   ],
-  providers: [],
+  providers: [SpotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
