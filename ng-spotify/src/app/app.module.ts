@@ -9,22 +9,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
 
+import { routing } from './app.routes'
 
-const routes = [
-     {
-        path: '',
-        redirectTo: 'search',
-        pathMatch: 'full'
-    },
-    {
-        path: 'search',
-        component: SearchComponent
-    },
-    {
-        path: 'about',
-        component: AboutComponent
-    }
-];
 
 @NgModule({
   declarations: [
@@ -37,7 +23,7 @@ const routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-		RouterModule.forRoot(routes)
+		routing
   ],
   providers: [],
   bootstrap: [AppComponent]
