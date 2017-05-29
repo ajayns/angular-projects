@@ -8,10 +8,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
+import { ArtistComponent } from './artist/artist.component'
 import { SpotifyService } from './spotify.service'
 
 
-import { routing } from './app.routes'
+import { routing } from './app.routes';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { routing } from './app.routes'
     AppComponent,
     NavbarComponent,
     AboutComponent,
-    SearchComponent
+    SearchComponent,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,
