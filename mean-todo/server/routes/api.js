@@ -21,7 +21,7 @@ router.get('/todo/:id', function (req, res, next) {
 // POST Todo
 router.post('/todo', function (req, res, next) {
 	var todo = req.body;
-	Todo.create( todo, function (err, result) {
+	Todo.create(todo, function (err, result) {
 		if (err) {
 			res.send(err);
 		} else {
@@ -29,6 +29,20 @@ router.post('/todo', function (req, res, next) {
 		}
 	})
 });
+
+// Edit Todo
+router.put('/todo/:id', function (req, res, next) {
+	Todo.findOneAndUpdate({
+		_id: req.params.id
+	}, req.body, function (err, result) {
+		if (err) {
+			res.send(err);
+		} else {
+			res.json(result);
+		}
+	});
+});
+
 
 // Delete Todo
 router.delete('/todo/:id', function (req, res, next) {
