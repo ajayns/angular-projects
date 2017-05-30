@@ -1,0 +1,13 @@
+<div class="add-todo-form text-center">
+	<h1>Add Todo</h1>
+	<div class="form-group">
+		<input class="input-lg col-md-10" placeholder="Add Todo..." autofocus="" #todotext="" />
+		<button class="btn btn-primary btn-lg col-md-2">Create</button>
+	</div>
+</div>
+
+<div class="todo-list">
+	<div class="alert alert-info text-center" [hidden]="todos.length > 0">
+		<h3>No Todos</h3>
+	</div>
+</div>
