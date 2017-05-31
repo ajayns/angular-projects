@@ -5,9 +5,24 @@
 		<button class="btn btn-primary btn-lg col-md-2">Create</button>
 	</div>
 </div>
+<p></p>
 
 <div class="todo-list">
 	<div class="alert alert-info text-center" [hidden]="todos.length > 0">
 		<h3>No Todos</h3>
 	</div>
+	
+	<div *ngFor="let todo of todos">
+        <div class="col-md-1">
+            <input type="checkbox" [checked]="todo.isCompleted">
+        </div>  
+        <div class="col-md-7">
+            <span>{{todo.text}}</span>
+            
+        </div>  
+        <div class="col-md-4 btns">
+            <input type="button" class="btn btn-danger pull-right" value="Delete"> 
+            <input [class.disabled]="todo.isCompleted" type="button" class="btn btn-default pull-right" value="Edit">
+        </div>  
+    </div>
 </div>

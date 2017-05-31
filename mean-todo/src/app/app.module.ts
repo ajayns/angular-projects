@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
+import { TodosService } from './todos.service'
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { TodosComponent } from './todos/todos.component';
     FormsModule,
     HttpModule,
   ],
-  providers: [],
+  providers: [TodosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
