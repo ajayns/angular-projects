@@ -47,5 +47,19 @@ export class TodosComponent implements OnInit {
 			.subscribe( data => {todo.isCompleted = !todo.isCompleted});
 	}
 	
+	deleteTodo(todo) {
+		var todos = this.todos;
+		this.todoService.deleteTodo(todo._id)
+			.map(res => res.json)
+			.subscribe( data => {
+				if(data.n == 1){
+          for(var i = 0;i < todos.length;i++){
+            if(todos[i]._id == todo._id){
+              todos.splice(i, 1);
+            }
+          }
+        }
+		});
+	}
 	
 }
