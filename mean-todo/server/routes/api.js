@@ -20,6 +20,7 @@ router.get('/todo/:id', function (req, res, next) {
 
 // POST Todo
 router.post('/todo', function (req, res, next) {
+	console.log(req.body);
 	var todo = req.body;
 	Todo.create(todo, function (err, result) {
 		if (err) {

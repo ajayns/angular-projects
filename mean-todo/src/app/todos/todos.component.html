@@ -1,11 +1,10 @@
-<div class="add-todo-form text-center">
+<div class="add-todo-form text-center container">
 	<h1>Add Todo</h1>
 	<div class="form-group">
 		<input class="input-lg col-md-10" placeholder="Add Todo..." autofocus #todoText>
-		<button class="btn btn-primary btn-lg col-md-2" (click)="addTodo(todoText)">Create</button>
+		<button class="btn btn-primary btn-lg col-md-2" (click)="addTodo($event, todoText)">Create</button>
 	</div>
 </div>
-<p></p>
 
 <div class="todo-list">
 	<div class="alert alert-info text-center" [hidden]="todos.length > 0">

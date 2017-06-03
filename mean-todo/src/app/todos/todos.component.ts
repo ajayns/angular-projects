@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodosService } from '../todos.service';
 import { Todo } from '../../models/Todo';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'todos',
@@ -9,26 +10,30 @@ import { Todo } from '../../models/Todo';
 })
 export class TodosComponent implements OnInit {
 	todos: Todo[];
-  constructor( private todoservice:TodosService) { }
+  constructor( private todoService:TodosService) { }
 
   ngOnInit() {
-		this.todoservice.getTodos()
+		this.todoService.getTodos()
 			.map(res => res.json())
 			.subscribe(todos => this.todos = todos)
   }
 
 	
-	addTodo(todoText) {
-		var newTodo = {
-			text: todoText.value,
-			isCompleted: false
-		}
-		var result = this.todoservice.saveTodo(newTodo);
-		result.subscribe(x => {
-      this.todos.push(newTodo)
-      todoText.value = '';
-    })
-	}
+	 addTodo($event, todoText){
+    if($event.which === 1){
+      var result;
+      var newTodo = {
+        text: todoText.value,
+        isCompleted: false
+      };
+			console.log(newTodo);      
+      result = this.todoService.saveTodo(newTodo);
+      result.subscribe(x => {
+        this.todos.push(newTodo)
+      })
+			todoText.value = '';
+    }
+  }
 	
 	updateStatus(todo) {
 		
