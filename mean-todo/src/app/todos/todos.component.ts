@@ -47,6 +47,31 @@ export class TodosComponent implements OnInit {
 			.subscribe( data => {todo.isCompleted = !todo.isCompleted});
 	}
 	
+	setEditState(todo, state) {
+		if(state)
+			todo.isEditMode = state;
+		else
+			delete todo.isEditMode;
+	}
+	
+	updateTodoText($event, todo) {
+		if($event.which === 13) {
+			todo.text = $event.target.value;
+			var temp = {
+				_id: todo._id,
+				text: todo.text,
+				isCompleted: todo.isCompleted
+			};
+			
+			this.todoService.updateTodo(temp)
+      	.map(res => res.json())
+      	.subscribe(data => {
+        	this.setEditState(todo, false);
+      });
+		}
+	}
+	
+	/*
 	deleteTodo(todo) {
 		var todos = this.todos;
 		this.todoService.deleteTodo(todo._id)
@@ -61,5 +86,6 @@ export class TodosComponent implements OnInit {
         }
 		});
 	}
+	*/
 	
 }
