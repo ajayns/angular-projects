@@ -1,5 +1,3 @@
-<ul>
-  <li class="text" *ngFor="let item of items | async">
-    {{item.$value}}
-  </li>
+<ul *ngFor="let business of businesses">
+    <li>{{business.company}}</li>  
 </ul>
