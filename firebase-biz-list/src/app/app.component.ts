@@ -14,6 +14,8 @@ import { Category } from '../interfaces/category';
 export class AppComponent implements OnInit {
   businesses: Business[];
 	categories: Category[];
+	appState:string;
+	activeKey:string;
 	
 	constructor(private firebaseservice:FirebaseService) { }
 	
@@ -27,5 +29,12 @@ export class AppComponent implements OnInit {
 			.subscribe( categories => {
 				this.categories = categories;
 		});
+	}
+	
+	changeState(state, key) {
+		if(key)
+			this.activeKey = key;
+		else
+			this.appState = state;
 	}
 }
