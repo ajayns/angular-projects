@@ -32,7 +32,18 @@ export class FirebaseService {
 	}
 			
 	addBusiness(newBusiness){
-		this.businesses.push(newBusiness);
+		const promise = this.businesses.push(newBusiness);
+		promise
+  		.then(_ => console.log('success'))
+  		.catch(err => console.log(err, 'You do not have access!'));
 	}
+	
+	deleteBusiness(key) {
+		const promise = this.businesses.remove(key);
+		promise
+  		.then(_ => console.log('success'))
+  		.catch(err => console.log(err, 'You do not have access!'));
+	}
+	
 	
 }
