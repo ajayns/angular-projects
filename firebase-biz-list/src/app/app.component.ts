@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 	constructor(private firebaseservice:FirebaseService) { }
 	
 	ngOnInit() {
-		appState = 'default';
+		this.appState = 'default';
 		this.firebaseservice.getBusinesses()
 			.subscribe( businesses => {
 				this.businesses = businesses;
@@ -35,8 +35,7 @@ export class AppComponent implements OnInit {
 	changeState(state, key) {
 		if(key)
 			this.activeKey = key;
-		else
-			this.appState = state;
+		this.appState = state;
 	}
 	
 	filterCategory(category) {
@@ -75,9 +74,9 @@ export class AppComponent implements OnInit {
     }
     
     this.firebaseservice.addBusiness(newBusiness);
-    this.changeState('default');
+    this.changeState('default', false);
   }
 }
 	
 	
-}
+

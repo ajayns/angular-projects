@@ -31,8 +31,8 @@ export class FirebaseService {
 			return this.categories;
 	}
 			
-	addBusiness(newBusiness): Promise<any>{
-		return this.businesses.push(newBusiness);
+	addBusiness(newBusiness){
+		this.businesses.push(newBusiness);
 	}
 	
 }
