@@ -44,6 +44,13 @@ export class FirebaseService {
   		.then(_ => console.log('success'))
   		.catch(err => console.log(err, 'You do not have access!'));
 	}
+			
+	updateBusiness(key, updBusiness) {
+	const promise = this.businesses.update(key, updBusiness);
+		promise
+  		.then(_ => console.log('success'))
+  		.catch(err => console.log(err, 'You do not have access!'));
+	}
 	
 	
 }
