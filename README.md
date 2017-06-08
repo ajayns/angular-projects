@@ -11,22 +11,7 @@ A collection of projects built on the Angular Framework, using the Angular CLI a
 6. **workouts-app [WIP]** : An workout tracker app which lets you save and manage workouts, built on Ionic.
 
 ## Set up.
-Make sure you have angular cli installed.
-```bash
-$ npm install -g angular-cli
-```
+For Angular apps, follow Angular CLI - Express build setup. For Ionic use Ionic CLI to serve/deploy
 
-Clone the repo
-```bash
-$ git clone https://github.com/ajayns/angular-projects.git
-```
-
-Go to any of the project folders and then,
-Install dependencies
-```bash
-$ npm install
-```
-
-Test locally
-```bash
-$ ng build && node server.js
+## Screenshots
+[WIP]
