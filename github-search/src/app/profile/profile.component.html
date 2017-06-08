@@ -2,12 +2,15 @@
 	<div class="col-md-12">
 		<form>
 			<div class="form-group">
+				<!-- ngModel binds input with variable username -->
+				<!-- keyUp calls searchUser() function everytime user releases a key -->
 				<input class="form-control" type="text" placeholder="Enter A Github Username..." name="username" [(ngModel)]="username" (keyup)="searchUser()">
 			</div>
 		</form>
 	</div>
 </div>
 
+<!-- If user exists, display user details -->
 <div *ngIf="user">
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -39,11 +42,14 @@
 		</div>
 	</div>
 	
+
+	<!-- Display repos -->
 	<div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">Repos</h3>
         </div>
         <div class="panel-body">
+           	<!-- Traverse through each repo in array -->
             <div *ngFor="let repo of repos">
                 <div class="row">
                     <div class="col-md-9">

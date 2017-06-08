@@ -1,5 +1,5 @@
 {
-  "name": "ng2-mean",
+  "name": "github-search",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -23,7 +23,6 @@
     "body-parser": "^1.17.2",
     "core-js": "^2.4.1",
     "express": "^4.15.3",
-    "mongoose": "^4.10.0",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },
