@@ -21,6 +21,8 @@ mongoose.connect('mongodb://localhost/meanTodo')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Specify routing
+// NOTE: Always do this after intializing parsers
 const api = require('./server/routes/api');
 app.use('/api', api);
 

@@ -1,3 +1,4 @@
+<!-- Add todos input -->
 <div class="add-todo-form text-center">
 	<h1>Add Todo</h1>
 	<div class="form-group">
@@ -11,16 +12,19 @@
 		<h3>No Todos</h3>
 	</div>
 
+	<!-- Display todos -->
 	<div *ngFor="let todo of todos">
 		<div class="col-md-1">
 			<input type="checkbox" [checked]="todo.isCompleted" (click)="updateStatus(todo)">
 		</div>
 		<div class="col-md-7">
+			<!-- Display todo.text else input depending on editMode -->
 			<span [class.hidden]="todo.isEditMode">{{todo.text}}</span>
 			<input [class.hidden]="!todo.isEditMode" type="text" [value]="todo.text" (keypress)="updateTodoText($event, todo)">
 			<input [class.hidden]="!todo.isEditMode" type="button" value="Cancel" (click)="setEditState(todo, false)" class="btn btn-warning">
 		</div>
 		<div class="col-md-4 btns">
+			<!-- Display control btns -->
 			<input type="button" class="btn btn-danger pull-right" value="Delete" (click)="deleteTodo(todo)">
 			<input [class.disabled]="todo.isCompleted" type="button" class="btn btn-default pull-right" value="Edit" (click)="setEditState(todo, true)">
 		</div>

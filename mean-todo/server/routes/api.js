@@ -12,7 +12,7 @@ router.get('/todos', function (req, res, next) {
 
 // GET single Todo
 router.get('/todo/:id', function (req, res, next) {
-	Todo.findById(req.params.id, function (err, result) {
+	Todo.findById(req.params.id, function (err, result) { // req.params.id finds id from url
 		if (err) return next(err);
 		res.json(result);
 	});
@@ -20,8 +20,7 @@ router.get('/todo/:id', function (req, res, next) {
 
 // POST Todo
 router.post('/todo', function (req, res, next) {
-	console.log(req.body);
-	var todo = req.body;
+	var todo = req.body; // Gets HTTP post data, if undefined, it's an error
 	Todo.create(todo, function (err, result) {
 		if (err) {
 			res.send(err);
@@ -57,11 +56,5 @@ router.delete('/todo/:id', function (req, res, next) {
 		}
 	});
 });
-
-// Test
-router.get('/test/:id', function (req, res, next) {
-	id = req.params.id;
-	console.log(id);
-})
 
 module.exports = router;

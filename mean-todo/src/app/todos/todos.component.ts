@@ -12,6 +12,7 @@ export class TodosComponent implements OnInit {
 	todos: Todo[];
   constructor( private todoService:TodosService) { }
 
+	// Get all todos on init
   ngOnInit() {
 		this.todoService.getTodos()
 			.map(res => res.json())
@@ -19,22 +20,25 @@ export class TodosComponent implements OnInit {
   }
 
 	
+	 // Add new todo
 	 addTodo($event, todoText){
+		// if event is click
     if($event.which === 1){
       var result;
       var newTodo = {
         text: todoText.value,
         isCompleted: false
       };
-			console.log(newTodo);      
+			// Create new todo and save
       result = this.todoService.saveTodo(newTodo);
       result.subscribe(x => {
         this.todos.push(newTodo)
       })
-			todoText.value = '';
+			todoText.value = ''; // Clear input
     }
   }
 	
+	// Edit todo status
 	updateStatus(todo) {
 		var temp = {
 			_id: todo._id,
@@ -47,6 +51,7 @@ export class TodosComponent implements OnInit {
 			.subscribe( data => {todo.isCompleted = !todo.isCompleted});
 	}
 	
+	// Function to switch edit states
 	setEditState(todo, state) {
 		if(state)
 			todo.isEditMode = state;
@@ -54,7 +59,10 @@ export class TodosComponent implements OnInit {
 			delete todo.isEditMode;
 	}
 	
+
+	// Edit todo text
 	updateTodoText($event, todo) {
+		// Enter key is pressed
 		if($event.which === 13) {
 			todo.text = $event.target.value;
 			var temp = {
@@ -63,6 +71,7 @@ export class TodosComponent implements OnInit {
 				isCompleted: todo.isCompleted
 			};
 			
+			// Save and change edit state
 			this.todoService.updateTodo(temp)
       	.map(res => res.json())
       	.subscribe(data => {

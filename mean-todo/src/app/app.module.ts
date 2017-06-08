@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
 import { TodosService } from './todos.service'
 
-
+// Import components and modules
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +19,7 @@ import { TodosService } from './todos.service'
     FormsModule,
     HttpModule,
   ],
-  providers: [TodosService],
+  providers: [TodosService], // Specify services
   bootstrap: [AppComponent]
 })
 export class AppModule { }

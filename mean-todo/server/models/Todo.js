@@ -1,3 +1,4 @@
+// Create Mongoose Schema for Todos stored in MongoDB
 var mongoose = require('mongoose');
 
 var TodoSchema = mongoose.Schema({
