@@ -6,12 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./jumbotron.component.css']
 })
 export class JumbotronComponent implements OnInit {
+	// Declare variablename:type
 	private jbtHeading:string;
 	private jbtText:string;
 	private jbtBtnText:string;
 	private jbtBtnUrl:string;
 
   constructor() {
+		// Initalize variables
 		this.jbtHeading = 'Hello World';
 		this.jbtText = 'This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.';
 		this.jbtBtnText = 'Read More';

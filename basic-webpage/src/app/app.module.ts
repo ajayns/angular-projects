@@ -29,20 +29,22 @@ const routes = [
 
 
 @NgModule({
-  declarations: [
+  // Specify all components
+	declarations: [
     AppComponent,
     JumbotronComponent,
     NavbarComponent,
     HomepageComponent,
     AboutpageComponent,
   ],
+	// Specify all imports from Angular
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [], // To specify services if any
   bootstrap: [AppComponent]
 })
 export class AppModule { }
