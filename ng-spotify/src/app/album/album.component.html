@@ -1,4 +1,5 @@
-<div id="album" *ngIf="album">
+<!-- Display album details if album exists -->
+  <div id="album" *ngIf="album">
     <header class="album-header">
         <div class="row">
             <div class="col-md-4">
@@ -17,11 +18,13 @@
         </div>    
     </header>
     
+    <!-- Display tracks in album -->
     <div class="album-tracks">
         <h2>Album Tracks</h2>
         <div *ngFor="let track of album.tracks.items">
             <div class="well">
                 <h5>{{track.track_number}} - {{track.name}}</h5>
+                <!-- Open track preview in new tab -->
                 <a href="{{track.preview_url}}" target="_blank">Preview Track</a>    
             </div>    
         </div>    

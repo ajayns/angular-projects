@@ -15,7 +15,9 @@ export class AlbumComponent implements OnInit {
 	
   constructor(private spotifyService:SpotifyService, private route:ActivatedRoute) { }
 
+	// Get albums on initialization
   ngOnInit() {
+		// Get id from route parameters and get Album details
 		this.route.params
 			.map( params => params['id'])
 			.subscribe((id) => {

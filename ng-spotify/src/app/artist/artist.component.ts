@@ -10,13 +10,16 @@ import { ActivatedRoute } from '@angular/router'
   styleUrls: ['./artist.component.css']
 })
 export class ArtistComponent implements OnInit {
+	// Declare variables
 	id:string;
 	artist:Artist[];
 	albums:Album[];
 	
   constructor(private spotifyService:SpotifyService, private route:ActivatedRoute) { }
 
+	// Load artists on intializatoin
   ngOnInit() {
+		// Get id from route parameter and query Artist and albums
 		this.route.params
 			.map( params => params['id'])
 			.subscribe((id) => {

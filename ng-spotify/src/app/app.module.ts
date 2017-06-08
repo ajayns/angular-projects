@@ -12,10 +12,11 @@ import { ArtistComponent } from './artist/artist.component';
 import { AlbumComponent } from './album/album.component';
 
 import { SpotifyService } from './spotify.service';
-import { routing } from './app.routes';
+import { routing } from './app.routes'; // Contains all routing information
 
 
 @NgModule({
+	// Specify components
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -24,13 +25,14 @@ import { routing } from './app.routes';
     ArtistComponent,
     AlbumComponent
   ],
+	// Specify modules used
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
 		routing
   ],
-  providers: [SpotifyService],
+  providers: [SpotifyService], // Import service
   bootstrap: [AppComponent]
 })
 export class AppModule { }
