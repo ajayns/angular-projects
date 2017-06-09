@@ -12,7 +12,7 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { FirebaseService } from './firebase.service';
 
-
+// Import components and modules, include firebase ones as well
 @NgModule({
   declarations: [
     AppComponent

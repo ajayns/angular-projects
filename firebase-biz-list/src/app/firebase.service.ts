@@ -7,13 +7,16 @@ import { Category } from '../interfaces/category';
 
 @Injectable()
 export class FirebaseService {
+	// Intialize firebase observables
 	businesses: FirebaseListObservable<Business[]>;
 	categories: FirebaseListObservable<Category[]>;
 
   constructor(private db:AngularFireDatabase) { }
 	
+	// Get businesses
 	getBusinesses(category:string = null) {
 		if(category != null) {
+			// Query by category if specified
 			this.businesses = this.db.list('/businesses',  {
 				query:{
 					orderByChild: 'category',
@@ -26,11 +29,13 @@ export class FirebaseService {
 			return this.businesses;
 	}
 
+	// Function names are self explanatory from here
+
 	getCategories() {
 		this.categories = this.db.list('/categories') as FirebaseListObservable<Category[]>
 			return this.categories;
 	}
-			
+
 	addBusiness(newBusiness){
 		const promise = this.businesses.push(newBusiness);
 		promise
@@ -38,6 +43,7 @@ export class FirebaseService {
   		.catch(err => console.log(err, 'You do not have access!'));
 	}
 	
+
 	deleteBusiness(key) {
 		const promise = this.businesses.remove(key);
 		promise

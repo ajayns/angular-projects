@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
 	
 	constructor(private firebaseservice:FirebaseService) { }
 	
+	// Get businesses and categories on init
 	ngOnInit() {
 		this.appState = 'default';
 		this.firebaseservice.getBusinesses()
@@ -43,12 +44,14 @@ export class AppComponent implements OnInit {
 		});
 	}
 	
+	// Change states function
 	changeState(state, key) {
 		if(key)
 			this.activeKey = key;
 		this.appState = state;
 	}
 	
+	// Filter businesses by category param
 	filterCategory(category) {
 		this.firebaseservice.getBusinesses(category)
 			.subscribe( businesses => {
@@ -56,6 +59,7 @@ export class AppComponent implements OnInit {
 		});
 	}
 	
+	// Add new business
 	addBusiness(
     company:string,
     category:string, 
@@ -85,9 +89,10 @@ export class AppComponent implements OnInit {
     }
     
     this.firebaseservice.addBusiness(newBusiness);
-    this.changeState('default', false);
+    this.changeState('default', false); // Change state back to default
   }
 	
+	// Edit business
 	showEdit(business){
     this.changeState('edit', business.$key);
     this.activeCompany = business.company;
@@ -120,6 +125,7 @@ export class AppComponent implements OnInit {
     this.changeState('default', false);
   }
 	
+	// Delete a business
 	deleteBusiness(key) {
 		this.firebaseservice.deleteBusiness(key);
 	}
