@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+
+import { WorkoutsProvider } from '../../providers/workouts/workouts';
 /**
  * Generated class for the WorkoutsPage page.
  *
@@ -12,13 +14,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-workouts',
   templateUrl: 'workouts.html',
 })
-export class WorkoutsPage {
+export class WorkoutsPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private workoutsprovider:WorkoutsProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad WorkoutsPage');
-  }
-
+	ngOnInit() {
+		this.workoutsprovider.getWorkouts().subscribe( res => {
+			console.log(res);
+		});
+	}
 }
