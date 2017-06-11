@@ -3,12 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { WorkoutDetailsPage } from '../workout-details/workout-details';
 
 import { WorkoutsProvider } from '../../providers/workouts/workouts';
-/**
- * Generated class for the WorkoutsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 @IonicPage()
 @Component({
   selector: 'page-workouts',
