@@ -30,4 +30,9 @@ export class WorkoutsProvider {
 		return this.http.post(this.dbUrl+'?apiKey='+this.apiKey,JSON.stringify(workout),{headers: headers})
 			.map(res => res.json());
 	}
+	
+	deleteWorkout(id) {
+		return this.http.delete(this.dbUrl+'/'+id+'?apiKey='+this.apiKey)
+			.map( res => res.json());
+	}
 }
