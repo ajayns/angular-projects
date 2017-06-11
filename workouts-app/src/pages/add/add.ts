@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { WorkoutsProvider } from '../../providers/workouts/workouts';
+import { WorkoutsPage } from '../workouts/workouts';
 /**
  * Generated class for the AddPage page.
  *
@@ -13,12 +14,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'add.html',
 })
 export class AddPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+	title:string;
+	note:string;
+	type:string;
+	newWorkout:any;
+	
+  constructor(public navCtrl: NavController, public navParams: NavParams, private workoutsprovider:WorkoutsProvider) {
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddPage');
-  }
+	
+	onSubmit() {
+		this.newWorkout = {
+			title: this.title,
+			note: this.note,
+			type: this.type
+		}
+		
+		this.workoutsprovider.addWorkout(this.newWorkout).subscribe( data => {
+		});
+		
+		this.navCtrl.setRoot(WorkoutsPage);
+	}
 
 }

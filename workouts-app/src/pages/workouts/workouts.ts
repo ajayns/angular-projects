@@ -18,7 +18,10 @@ export class WorkoutsPage implements OnInit {
 	workouts: any[];
 	
   constructor(public navCtrl: NavController, public navParams: NavParams, private workoutsprovider:WorkoutsProvider) {
-  }
+  	this.workoutsprovider.getWorkouts().subscribe( workouts => {
+			this.workouts = workouts;
+		});
+	}
 
 	ngOnInit() {
 		this.workoutsprovider.getWorkouts().subscribe( workouts => {
