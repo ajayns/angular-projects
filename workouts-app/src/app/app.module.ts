@@ -8,6 +8,7 @@ import { AboutPage } from '../pages/about/about';
 import { AddPage } from '../pages/add/add';
 import { WorkoutsPage } from '../pages/workouts/workouts';
 import { TabsPage } from '../pages/tabs/tabs';
+import { WorkoutDetailsPage } from '../pages/workout-details/workout-details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,6 +20,7 @@ import { WorkoutsProvider } from '../providers/workouts/workouts';
     AboutPage,
     AddPage,
     WorkoutsPage,
+		WorkoutDetailsPage,
     TabsPage
   ],
   imports: [
@@ -32,6 +34,7 @@ import { WorkoutsProvider } from '../providers/workouts/workouts';
     AboutPage,
     AddPage,
     WorkoutsPage,
+		WorkoutDetailsPage,
     TabsPage
   ],
   providers: [
