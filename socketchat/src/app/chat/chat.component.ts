@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ChatService } from '../chat.service';
 
 @Component({
@@ -9,14 +9,26 @@ import { ChatService } from '../chat.service';
 export class ChatComponent implements OnInit {
 	messages:any = [];
 	message:string;
+	connection:any;
 	
   constructor(private _chatservice:ChatService) { }
 
   ngOnInit() {
+		this.connection = this._chatservice.getMessages().subscribe(
+			message => {
+				console.log(message);
+				this.messages.push(message);
+			}
+		);
   }
 	
+	ngOnDestroy() {
+		this.connection.unsubscribe();
+	}
+	
 	sendMessage() {
-		console.log(this.message);
+		this._chatservice.sendMessage(this.message);
+		this.message = '';
 	}
 
 }
