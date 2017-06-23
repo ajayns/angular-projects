@@ -1,20 +1,22 @@
-<div>
-	<label>Username: </label>
-	<input type="text" [(ngModel)]="username" name="username">
-	<br>
-	<button (click)="setUsername()">Submit</button>
+<div class="row">
+    <div class="col-md-6">
+        <label>Username: </label>
+        <input class="form-control" type="text" [(ngModel)]="username" name="username">
+        <br>
+        <button class="btn btn-default" (click)="setUsername()">Submit</button> 
+    </div>   
 </div>
 
-
+<h1>SocketChat</h1>
 <div *ngIf="username">
-	<input type="text" placeholder="Enter Message" name="message" (keyup.enter)="sendMessage()" [(ngModel)]="message" />
+    <input class="form-control" type="text" placeholder="Enter Message..." [(ngModel)]="message" name="message" (keyup.enter)="sendMessage()">
+    <br>
 
-	<div *ngFor="let message of messages">
-		<strong>{{message.username}}</strong> {{message.text}}
-	</div>
+    <div *ngFor="let message of messages">
+        <div class="well"><strong>{{message.username}}: </strong> {{message.text}}</div>
+    </div>
 </div>
 
-
-<div *ngIf="!username">
-	Log In to Chat
+<div class="text-center" *ngIf="!username">
+        Please Log In To Chat
 </div>
