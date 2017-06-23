@@ -10,10 +10,14 @@ export class ChatComponent implements OnInit {
 	messages:any = [];
 	message:string;
 	connection:any;
+	username:string;
+	alert:any = false;
 	
   constructor(private _chatservice:ChatService) { }
 
   ngOnInit() {
+		this.username = this._chatservice.getUsername();
+		
 		this.connection = this._chatservice.getMessages().subscribe(
 			message => {
 				console.log(message);
@@ -26,8 +30,13 @@ export class ChatComponent implements OnInit {
 		this.connection.unsubscribe();
 	}
 	
+	setUsername(username) {
+		this._chatservice.setUsername(username);
+		this.alert = 'Username is set';
+	}
+	
 	sendMessage() {
-		this._chatservice.sendMessage(this.message);
+		this._chatservice.sendMessage(this.message, this.username);
 		this.message = '';
 	}
 
