@@ -7,6 +7,7 @@ import { ChatComponent } from './chat/chat.component';
 
 import { ChatService } from './chat.service';
 
+// Import required components for the app here
 @NgModule({
   declarations: [
     AppComponent,
