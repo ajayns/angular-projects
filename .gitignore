@@ -3,6 +3,7 @@
 */tmp
 
 # dependencies
+*/.meteor/local
 */node_modules
 */bower_components
 
