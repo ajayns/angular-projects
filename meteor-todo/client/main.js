@@ -9,7 +9,7 @@ angular.module('meteor-todo', [
 ]);
 
 function onReady() {
-  angular.bootstrap(document, ['simple-todos']);
+  angular.bootstrap(document, ['meteor-todo']);
 }
 
 if (Meteor.isCordova) {
