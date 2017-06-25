@@ -2,10 +2,12 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor'; 
 import todoList from '../imports/components/todoList/todoList';
+import '../imports/startup/accounts-config.js';
 
 angular.module('meteor-todo', [
   angularMeteor,
-	todoList.name
+	todoList.name,
+	'accounts.ui'
 ]);
 
 function onReady() {

@@ -31,6 +31,9 @@ class TodoListCtrl {
 						$ne: true
 					}
 				}).count();
+			},
+			currentUser() {
+				return Meteor.user();
 			}
 		})
 	}
@@ -38,7 +41,9 @@ class TodoListCtrl {
 	addTask(newTask) {
 		Tasks.insert({
 			text: newTask,
-			createdAt: new Date
+			createdAt: new Date,
+			owner: Meteor.userId(),
+			username: Meteor.user().username
 		});
 		this.newTask = '';
 	}
