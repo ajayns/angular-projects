@@ -9,8 +9,8 @@ A collection of projects built on the Angular Framework, using the Angular CLI a
 4. **mean-todo** : Basic CRUD WebApp built on the Mongo-Express-Angular-Node Stack to manage todos.
 5. **firebase-biz-list** : Business orgs details listing SPA with CRUD functionality implemented using Firebase, uses Foundation for styling.
 6. **workouts-app** : An workout tracker mobile app which lets you save and manage workouts, built on Ionic 3.
-7. **socketchat [WIP]** : A chat app built using Angular with Socket.io
-8. **[WIP]** : An Angular-Meteor web application
+7. **socketchat** : A chat app built using Angular with Socket.io
+8. **meteor-todo [WIP]** : An Angular-Meteor web application
 
 ## Set up.
 For Angular apps, follow Angular CLI - Express build setup. For Ionic use Ionic CLI to serve/deploy
